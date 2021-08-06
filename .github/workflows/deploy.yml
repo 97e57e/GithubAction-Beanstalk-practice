@@ -7,7 +7,8 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    name: CD Pipeline
+    runs-on: ubuntu-18.04
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -22,7 +23,7 @@ jobs:
         shell: bash
 
       - name: Build with Gradle
-        run: ./gradlew --stacktrace build
+        run: ./gradlew clean build
         shell: bash
 
       - name: Get current time
@@ -46,8 +47,8 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name: freelec-springboot2-webervice
-          environment_name: freelec-springboot2-webervice
+          application_name: cicd-test
+          environment_name: cicd-test
           version_label: github-action-${{steps.current-time.outputs.formattedTime}}
           region: ap-northeast-2
           deployment_package: deploy/deploy.zip
