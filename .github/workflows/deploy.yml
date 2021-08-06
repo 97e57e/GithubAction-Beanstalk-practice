@@ -26,13 +26,6 @@ jobs:
         run: ./gradlew clean build
         shell: bash
 
-      - name: Get current time
-        uses: 1466587594/get-current-time@v2
-        id: current-time
-        with:
-          format: YYYY-MM-DDTHH-mm-ss
-          utcOffset: "+09:00"
-
       - name: Generate deployment package
         run: |
           mkdir -p deploy
@@ -49,6 +42,6 @@ jobs:
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: cicd-test
           environment_name: cicd-test
-          version_label: github-action-${{steps.current-time.outputs.formattedTime}}
+          version_label: github-action-${{ github.head_ref }}
           region: ap-northeast-2
           deployment_package: deploy/deploy.zip
