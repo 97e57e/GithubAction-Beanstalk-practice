@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build:
+  jib-dockerize:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,4 +18,7 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: jib Dockerize
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         run: ./gradlew jib
