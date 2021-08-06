@@ -19,7 +19,7 @@ workflows/deploy.yml의 32라인에서 <br>
 cp target deploy/application.jar 가 디렉토리가 아니라는 에러와 함께 계속 실패<br><br>
 
 알고보니 빌드시 -plain.jar가 함께 생성 되어 cp 명령어 실행시 두 파일이 함께 옮겨져 에러가 났던것.
-<img width="764" alt="스크린샷 2021-08-07 오전 3 09 14" src="https://user-images.githubusercontent.com/41745717/128554280-a5302ce7-5879-4fb0-a855-7055a45c43c6.png">
+<img width="423" alt="스크린샷 2021-08-07 오전 3 15 52" src="https://user-images.githubusercontent.com/41745717/128554546-f093e861-61f2-4613-a1a2-3c60716ccc26.png">
 
 ```kotlin
 tasks.getByName<Jar>("jar") {
