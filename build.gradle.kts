@@ -1,52 +1,3 @@
-//plugins {
-//    id 'org.springframework.boot' version '2.5.3'
-//    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-//    id 'java'
-//    id 'com.google.cloud.tools.jib' version '3.1.2'
-//}
-//
-//group = 'lee.garden'
-//version = '0.0.1-SNAPSHOT'
-//sourceCompatibility = '11'
-//
-//repositories {
-//    mavenCentral()
-//}
-//
-//dependencies {
-//    implementation 'org.springframework.boot:spring-boot-starter-web'
-//    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-//}
-//
-//test {
-//    useJUnitPlatform()
-//}
-//
-//jib {
-//    def ver = UUID.randomUUID().toString()
-//    def DOCKER_USERNAME = System.getenv("DOCKER_USERNAME")
-//    def DOCKER_PASSWORD = System.getenv("DOCKER_PASSWORD")
-//
-//    from {
-//        image='openjdk:11-jre-slim'
-//    }
-//
-//    to {
-//        image = "gardenlee/cicd-practice"
-//        auth{
-//            it.setUsername(DOCKER_USERNAME)
-//            it.setPassword(DOCKER_PASSWORD)
-//        }
-//        tags = [ver]
-//    }
-//
-//    container {
-//        mainClass = "lee.garden.cicdtest.CicdTestApplication"
-//        ports = ["8080"]
-//        volumes = ["/tmp"]
-//    }
-//}
-
 plugins {
     java
     id("org.springframework.boot") version "2.5.3"
@@ -100,6 +51,6 @@ tasks {
             mainClass = "lee.garden.cicdtest.CicdTestApplication"
             ports = listOf("8080")
             volumes = listOf("/tmp")
+        }
     }
-}
 }
