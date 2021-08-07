@@ -17,7 +17,7 @@ public class CicdTestApplication {
 
         @GetMapping("/")
         public String health() {
-            return "hello world!";
+            return "hello world!!";
         }
     }
 
